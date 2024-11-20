@@ -5,7 +5,6 @@ function Cadastrar() {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
-    password: '',
   })
   
   const navigate = useNavigate()
