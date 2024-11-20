@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Cadastrar() {
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
-    tipoEnergia: '',
-    consumoMensal: '',
+    password: '',
   })
+  
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -18,16 +20,14 @@ function Cadastrar() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aqui você pode adicionar a lógica para salvar os dados em um arquivo JSON
     console.log('Dados do formulário:', JSON.stringify(formData, null, 2))
-    // Limpar o formulário após o envio
     setFormData({
       nome: '',
       email: '',
-      tipoEnergia: '',
-      consumoMensal: '',
+      password: '',
     })
     alert('Cadastro realizado com sucesso!')
+    navigate('/login')
   }
 
   return (
@@ -59,30 +59,11 @@ function Cadastrar() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="tipoEnergia" className="block mb-2">Tipo de Energia de Interesse:</label>
-          <select
-            id="tipoEnergia"
-            name="tipoEnergia"
-            value={formData.tipoEnergia}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
-            required
-          >
-            <option value="">Selecione...</option>
-            <option value="solar">Energia Solar</option>
-            <option value="eolica">Energia Eólica</option>
-            <option value="hidrica">Energia Hídrica</option>
-            <option value="biomassa">Biomassa</option>
-          </select>
-        </div>
-        <div className="mb-4">
-          <label htmlFor="consumoMensal" className="block mb-2">Consumo Mensal (kWh):</label>
+          <label htmlFor="password" className="block mb-2">Senha:</label>
           <input
-            type="number"
-            id="consumoMensal"
-            name="consumoMensal"
-            value={formData.consumoMensal}
-            onChange={handleChange}
+            type="password"
+            id="password"
+            value={formData.password}
             className="w-full px-3 py-2 border rounded"
             required
           />

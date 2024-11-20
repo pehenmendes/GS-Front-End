@@ -8,14 +8,14 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aqui você pode adicionar a lógica de autenticação
     sessionStorage.setItem('user', JSON.stringify({ username }))
     navigate('/')
+    window.location.reload()
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+      <h2 className="text-3xl font-bold mb-4">Sign In</h2>
       <form onSubmit={handleSubmit} className="max-w-md">
         <div className="mb-4">
           <label htmlFor="username" className="block mb-2">Usuário:</label>
