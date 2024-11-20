@@ -64,6 +64,7 @@ function Cadastrar() {
             type="password"
             id="password"
             value={formData.password}
+            onChange={handleChange}
             className="w-full px-3 py-2 border rounded"
             required
           />
